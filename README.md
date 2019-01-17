@@ -1,6 +1,6 @@
 # Console Frameworks
 
-words
+Frameworks?  not that bad really.  They're just reusable fill-in-the-blank solutions for common use cases.  This exercise is your first taste of frameworks.  simple console one, more copmlex as we go, one for each exercise, try to make your own as you find yourself doing similar tasks repeatedly
 
 ### Readings
 * [learning objectives](#learning-objectives)
