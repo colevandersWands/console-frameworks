@@ -66,7 +66,7 @@ To complete the exercises paste this framework into the devtools console.  Refac
 It is possible to build the test cases just with trial and error but you won't be doing yourself any favors.  Do you best effort to predict the correct expected values before running the tests.
 
 
-
+```js
 simple_framework: {
   const test_case = ;
   const log = [];
@@ -94,7 +94,7 @@ simple_framework: {
     console.groupEnd();
   };
 };
-
+```
 
 [TOP](#console-frameworks)
 
