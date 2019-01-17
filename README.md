@@ -68,7 +68,7 @@ It is possible to build the test cases just with trial and error but you won't b
 
 ```js
 simple_framework: {
-  const test_case = ;
+  const test = {name:'', args:[], expected: null};
   const log = [];
 
   let actual; { 
@@ -76,7 +76,7 @@ simple_framework: {
   };
 
   // framework magic happens down here
-  const expected = _case.expected;
+  const expected = test.expected;
   let pass = null;
   if (typeof expected === 'object') {
     const _actual = JSON.stringify(actual);
@@ -86,9 +86,9 @@ simple_framework: {
     pass = actual === expected;
   };
   if (pass) {
-    console.groupCollapsed(`%c ${_case.name}: \n`, 'color:green', log);
+    console.groupCollapsed(`%c ${test.name}: \n`, 'color:green', log);
   } else {
-    console.groupCollapsed(`%c ${_case.name}: \n`, 'color:red', log);
+    console.groupCollapsed(`%c ${test.name}: \n`, 'color:red', log);
     console.log(`%c   actual: ${typeof actual},`, 'color:red', actual);
     console.log(`%c   expected: ${typeof expected},`, 'color:blue', expected);
     console.groupEnd();
@@ -126,6 +126,20 @@ original snippet:
   
   console.assert(actual === expected, log);
 }
+```
+framework friendly:
+```
+let actual: {
+  let a = test.args[0];                        
+  let b = test.args[1];                        
+  let temp = test.args[2];     log.push({a,b,temp}); 
+  
+  temp = b;                         log.push({temp});
+  b = a;                            log.push({b});
+  a = temp;                         log.push({a});
+
+  actual = temp;                    log.push({actual});
+};
 ```
 the values:
 ```js
