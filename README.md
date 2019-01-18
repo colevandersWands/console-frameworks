@@ -137,7 +137,7 @@ framework-ready:
 ```js
 // this code is ready to be pasted in the framework and run with any test case
 
-// declare actual just outside of the block
+// declare 'actual' just outside of the block
 let actual; {  
   // remove declarations of 'expected' & 'log', the framework handles that
    
