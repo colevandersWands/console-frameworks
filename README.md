@@ -54,8 +54,8 @@ const test_case = {name:'helpful name', args:['different', 'inputs'], expected:'
 ```
 
 > DISCLAIMER: 
-* In this exercise you are learning to write test cases for existing code.  The code is always right. If your test fails, change it.   
-* In the real world it will usually be the oposite. The tests should descibe the code.  If the tests fail, change the code.
+> * In this exercise you are learning to write test cases for existing code.  The code is always right. If your test fails, change it.   
+> * In the real world it will usually be the oposite. The tests should descibe the code.  If the tests fail, change the code.
 
 [TOP](#console-frameworks)
 
