@@ -74,7 +74,7 @@ A failing test will print out it's name in red, clicking the arrow to the left o
 
 ```js
 simple_framework: {
-  const test = {name:'', args:[], expected: null};
+  const test = /* paste test case here */;
   const log = [];
 
   let actual; { 
@@ -136,6 +136,8 @@ original snippet:
 framework-ready:
 ```
 // this code is ready to be pasted in the framework and run with any test case
+
+// declare actual just outside of the block
 let actual; {  
   // remove declarations of 'expected' & 'log', the framework handles that
    
@@ -148,7 +150,7 @@ let actual; {
   b = a;                            log.push({b});
   a = temp;                         log.push({a});
 
-  // turn 'actual' from a declaration to just and assignment
+  // turn 'actual' from a declaration to just and assignment (block scope)
   actual = temp;                    log.push({actual});
   
   // remove any final asserts or JSON.stringify's
@@ -170,7 +172,7 @@ your notes:
 [on pytut](https://goo.gl/Ym63eU)  
 [interactive example](https://github.com/elewa-academy/nesting-blocks-let)  
 
-the code:
+original snippet:
 ```js
 {
   const expected = ;              const log = [{expected}];
@@ -192,11 +194,14 @@ the code:
   console.assert(actual === expected, log);
 }
 ```
+framework-ready:
+```js
+```
 the values:
 ```js
-a:1, b:2, c:3         --> ?
-a:'', b:0, c:false    --> ?
-a:true, b:false, c:9  --> ?
+a:1, b:2, c:3         -->  {name:'', args:[], expected: null};
+a:'', b:0, c:false    -->  {name:'', args:[], expected: null};
+a:true, b:false, c:9  -->  {name:'', args:[], expected: null};
 ```
 your notes:  
 
@@ -210,7 +215,7 @@ your notes:
 [let vs var](https://github.com/elewa-academy/block-scope-let-vs-var)  
 
 
-the code:
+original snippet:
 (refresh the page each time before running this exercise)  
 ```js
 {
@@ -232,11 +237,14 @@ the code:
   console.assert(actual === expected, log);
 }
 ```
+framework-ready:
+```js
+```
 the values:
 ```js
-b:2, c:3         --> ?
-b:0, c:false     --> ?
-b:false, c:9     --> ?
+b:2, c:3         -->  { name:'', args:[], expected:null };
+b:0, c:false     -->  { name:'', args:[], expected:null };
+b:false, c:9     -->  { name:'', args:[], expected:null };
 ```
 your notes:  
 
@@ -251,7 +259,7 @@ your notes:
 [on pytut](https://goo.gl/xX64Cg)  
 [more about this](https://github.com/elewa-academy/reference-vs-value)
 
-the code:
+original snippet:
 ```js
 {
   const expected = [];            const log = [{expected}];
@@ -274,11 +282,14 @@ the code:
   console.assert(assert_act === assert_exp, log);
 }
 ```
+framework-ready:
+```js
+```
 the values:
 ```js
-x:2, y:3         --> ?
-x:'x', y:'y'     --> ?
-x:null, y:0      --> ?
+x:2, y:3         -->  { name:'', args:[], expected:null };
+x:'x', y:'y'     -->  { name:'', args:[], expected:null };
+x:null, y:0      -->  { name:'', args:[], expected:null };
 ```
 your notes:  
 
@@ -290,7 +301,7 @@ your notes:
 [on pytut](https://goo.gl/UCT8Co)  
 [more about this](https://github.com/elewa-academy/reference-vs-value)
 
-the code:
+original snippet:
 ```js
 {
   const expected = [];            const log = [{expected}];
@@ -313,11 +324,14 @@ the code:
   console.assert(assert_act === assert_exp, log);
 }
 ```
+framework-ready:
+```js
+```
 the values:
 ```js
-x:2, y:3         --> ?
-x:'x', y:'y'     --> ?
-x:null, y:0      --> ?
+x:2, y:3         -->  { name:'', args:[], expected:null };
+x:'x', y:'y'     -->  { name:'', args:[], expected:null };
+x:null, y:0      -->  { name:'', args:[], expected:null };
 ```
 your notes:  
 
@@ -328,7 +342,7 @@ your notes:
 [on pytut](https://goo.gl/2G6nuu)  
 [extra resource](https://github.com/elewa-academy/variables-and-types/tree/master/dots-vs-brackets) 
 
-the code:
+original snippet:
 ```js
 {
   const expected = [];            const log = [{expected}];
@@ -351,12 +365,15 @@ the code:
   console.assert(assert_act === assert_exp, log);
 }
 ```
+framework-ready:
+```js
+```
 the values:
 ```js
-a:'a', b:'b'      --> ?
-a:'b', b:'a'      --> ?
-a:1, b:2          --> ?
-a:2, b:1          --> ?
+a:'a', b:'b'      -->  { name:'', args:[], expected:null };
+a:'b', b:'a'      -->  { name:'', args:[], expected:null };
+a:1, b:2          -->  { name:'', args:[], expected:null };
+a:2, b:1          -->  { name:'', args:[], expected:null };
 ```
 your notes:  
 
@@ -371,7 +388,7 @@ your notes:
 
 [on pytut](https://goo.gl/TgqxaR)
 
-the code:
+original snippet:
 ```js
 {
   const expected = ;             const log = [{expected}];
@@ -395,18 +412,21 @@ the code:
   console.assert(actual === expected, log);
 }
 ```
+framework-ready:
+```js
+```
 the values:
 ```js
-a:true, b:false      --> ?
-a:false, b:true      --> ?
-a:0, b:1             --> ?
-a:1, b:0             --> ?
-a:null, b:false      --> ?
-a:false, b:null      --> ?
-a:'', b:' '          --> ?
-a:' ', b:''          --> ?
-a:2, b:3             --> ?
-a:3, b:2             --> ?
+a:true, b:false      -->  { name:'', args:[], expected:null };
+a:false, b:true      -->  { name:'', args:[], expected:null };
+a:0, b:1             -->  { name:'', args:[], expected:null };
+a:1, b:0             -->  { name:'', args:[], expected:null };
+a:null, b:false      -->  { name:'', args:[], expected:null };
+a:false, b:null      -->  { name:'', args:[], expected:null };
+a:'', b:' '          -->  { name:'', args:[], expected:null };
+a:' ', b:''          -->  { name:'', args:[], expected:null };
+a:2, b:3             -->  { name:'', args:[], expected:null };
+a:3, b:2             -->  { name:'', args:[], expected:null };
 ```
 your notes:  
 
@@ -417,7 +437,7 @@ your notes:
 
 [on pytut](https://goo.gl/zhTS2m)
 
-the code:
+original snippet:
 ```js
 {
   const expected = ;                const log = [{expected}];
@@ -442,14 +462,17 @@ the code:
   console.assert(actual === expected, log);
 }
 ```
+framework-ready:
+```js
+```
 the values:
 ```js
-a:true, b:'', c:1      --> ?
-a:false, b:'', c:0      --> ?
-a:true, b:'', c:0      --> ?
-a:false, b:'', c:1      --> ?
-a:false, b:' ', c:1      --> ?
-a:true, b:' ', c:1      --> ?
+a:true, b:'', c:1       -->  { name:'', args:[], expected:null };
+a:false, b:'', c:0      -->  { name:'', args:[], expected:null };
+a:true, b:'', c:0       -->  { name:'', args:[], expected:null };
+a:false, b:'', c:1      -->  { name:'', args:[], expected:null };
+a:false, b:' ', c:1     -->  { name:'', args:[], expected:null };
+a:true, b:' ', c:1      -->  { name:'', args:[], expected:null };
 ```
 your notes:  
 
@@ -461,7 +484,7 @@ your notes:
 
 [on pytut](https://goo.gl/D9R3HS)
 
-the code:
+original snippet:
 ```js
 {
   const expected = ;                const log = [{expected}];
@@ -489,12 +512,15 @@ the code:
   console.assert(actual === expected, log);
 }
 ```
+framework-ready:
+```js
+```
 the values:
 ```js
-a:0, b:0    -->  ?
-a:0, b:1    -->  ?
-a:1, b:0    -->  ?
-a:1, b:1    -->  ?
+a:0, b:0    -->  { name:'', args:[], expected:null };
+a:0, b:1    -->   { name:'', args:[], expected:null };
+a:1, b:0    -->   { name:'', args:[], expected:null };
+a:1, b:1    -->  { name:'', args:[], expected:null };
 ```
 your notes:  
 
@@ -508,7 +534,7 @@ your notes:
 
 [on pytut](https://goo.gl/YFn6Zd)
 
-the code:
+original snippet:
 ```js
 {
   const expected = ;                const log = [{expected}];
@@ -527,13 +553,16 @@ the code:
   console.assert(actual === expected, log);
 }
 ```
+framework-ready:
+```js
+```
 the values:
 ```js
-things:[-1, 0, 1]            --> ?
-things:[-3, -2, -1]          --> ?
-things:[true, false, 1, 0]   --> ?
-things:['words', 5, 1e3]     --> ?
-things:[]                    --> ?
+things:[-1, 0, 1]            -->  { name:'', args:[], expected:null };
+things:[-3, -2, -1]          -->  { name:'', args:[], expected:null };
+things:[true, false, 1, 0]   -->  { name:'', args:[], expected:null };
+things:['words', 5, 1e3]     -->  { name:'', args:[], expected:null };
+things:[]                    -->  { name:'', args:[], expected:null };
 ```
 your notes:  
 
@@ -543,7 +572,7 @@ your notes:
 
 [on pytut](https://goo.gl/jbvs2o)
 
-the code:
+original snippet:
 ```js
 {
   const expected = ;             const log = [{expected}];
@@ -564,14 +593,17 @@ the code:
   console.assert(actual === expected, log);
 }
 ```
+framework-ready:
+```js
+```
 the values:
 ```js
-a:10, b:0, c:1      --> ?
-a:8, b:2, c:1       --> ?
-a:7, b:5, c:1       --> ?
-a:13, b:1, c:3      --> ?
-a:0, b:-28, c:7     --> ?
-a:15, b:-9, c:3     --> ?
+a:10, b:0, c:1      -->  { name:'', args:[], expected:null };
+a:8, b:2, c:1       -->  { name:'', args:[], expected:null };
+a:7, b:5, c:1       -->  { name:'', args:[], expected:null };
+a:13, b:1, c:3      -->  { name:'', args:[], expected:null };
+a:0, b:-28, c:7     -->  { name:'', args:[], expected:null };
+a:15, b:-9, c:3     -->  { name:'', args:[], expected:null };
 ```
 your notes:  
 
@@ -581,7 +613,7 @@ your notes:
 
 [on pytut](https://goo.gl/Gbtsu9)
 
-the code:
+original snippet:
 ```js
 {
   const expected = ;                   const log = [{expected}];
@@ -603,14 +635,17 @@ the code:
   console.assert(assert_act === assert_exp, log);
 }
 ```
+framework-ready:
+```js
+```
 the values:
 ```js
-things:[false,true]     --> ?
-things:[0,1]            --> ?
-things:['',' ']         --> ?
-things:[Infinity,NaN]   --> ?
-things:[[],{}]          --> ?
-things:[[1],{1}]        --> ?
+things:[false,true]     -->  { name:'', args:[], expected:null };
+things:[0,1]            -->  { name:'', args:[], expected:null };
+things:['',' ']         -->  { name:'', args:[], expected:null };
+things:[Infinity,NaN]   -->  { name:'', args:[], expected:null };
+things:[[],{}]          -->  { name:'', args:[], expected:null };
+things:[[1],{1}]        -->  { name:'', args:[], expected:null };
 ```
 your notes:  
 
@@ -620,7 +655,7 @@ your notes:
 
 [on pytut](https://goo.gl/iupw2c)
 
-the code:
+original snippet:
 ```js
 {
   const expected = ;                const log = [{expected}];
@@ -642,13 +677,16 @@ the code:
   console.assert(assert_act === assert_exp, log);
 }
 ```
+framework-ready:
+```js
+```
 the values:
 ```js
-word:"word"       --> ?
-word:""           --> ?
-word:"\n\t"       --> ?
-word:"\e\\"       --> ?
-word:"3.5"        --> ?
+word:"word"       -->  { name:'', args:[], expected:null };
+word:""           -->  { name:'', args:[], expected:null };
+word:"\n\t"       -->  { name:'', args:[], expected:null };
+word:"\e\\"       -->  { name:'', args:[], expected:null };
+word:"3.5"        -->  { name:'', args:[], expected:null };
 ```
 your notes:  
 
