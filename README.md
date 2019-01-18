@@ -61,9 +61,12 @@ const test_case = {name:'helpful name', args:['different', 'inputs'], expected:'
 
 So you can focus on writing test cases, we've provided the framework below to log a helpful message for every one of your failing test cases.  This message will include the name of the failing case, the expected value and the actual value.  In this exercise if a test fails it's because the test is wrong, not because the code is broken.  Remember, you're describing what the code _does_ do, not what it _should_ do.
 
-To complete the exercises paste this framework into the devtools console.  Refactor the snippet you're studying so it works with the framework, start a new empty test case with your best guess.  Hit enter to see if you're right!  
+To complete the exercises paste this framework into the devtools console.  Refactor the snippet you're studying so it works with the framework, start a new empty test case with your best guess.  Hit enter to see if your test passes!    
 
 It is possible to build the test cases just with trial and error but you won't be doing yourself any favors.  Do you best effort to predict the correct expected values before running the tests.
+
+A passing test case will print out it's name in green followed by the log.  To expand the log, click the arrow to the left of 'log' in the readout.  
+A failing test will print out it's name in red, clicking the arrow to the left of the test case's name will reveal both the expected and the actual values.  You can spot where you went wrong in your prediction by opening both the log & the actual/expected then using them as guides to retrace the code's execution.
 
 
 ```js
@@ -86,7 +89,7 @@ simple_framework: {
     pass = actual === expected;
   };
   if (pass) {
-    console.groupCollapsed(`%c ${test.name}: \n`, 'color:green', log);
+    console.log(`%c ${test.name}: \n`, 'color:green', log);
   } else {
     console.groupCollapsed(`%c ${test.name}: \n`, 'color:red', log);
     console.log(`%c   actual: ${typeof actual},`, 'color:red', actual);
@@ -127,26 +130,33 @@ original snippet:
   console.assert(actual === expected, log);
 }
 ```
-framework friendly:
+framework-ready:
 ```
-let actual: {
-  let a = test.args[0];                        
-  let b = test.args[1];                        
-  let temp = test.args[2];     log.push({a,b,temp}); 
+// this code is ready to be pasted in the framework and run with any test case
+let actual; {  
+  // remove declarations of 'expected' & 'log', the framework handles that
+   
+  // assign input variables with values from test.args
+  let a = test.args[0];                     
+  let b = test.args[1];                     
+  let temp = test.args[2];          log.push({a,b,temp}); 
   
   temp = b;                         log.push({temp});
   b = a;                            log.push({b});
   a = temp;                         log.push({a});
 
+  // turn 'actual' from a declaration to just and assignment
   actual = temp;                    log.push({actual});
+  
+  // remove any final asserts or JSON.stringify's
 };
 ```
 the values:
 ```js
-a:1, b:2, temp:3            --> ?
-a:'a', b:'b', temp:'temp'   --> ?
-a:true, b:false, temp:null  --> ?
-a:'', b:0, temp:undefined   --> ?
+a:1, b:2, temp:3            --> {name:'1,2,3', args:[1,2,3], expected: 2};
+a:'a', b:'b', temp:'temp'   --> {name:'a,b,temp', args:['a','b','temp'], expected: 'b'};
+a:true, b:false, temp:null  --> {name:'tr,fa,null', args:[true,false,null], expected: false};
+a:'', b:0, temp:undefined   --> {name:'"",0,undefined', args:['',0,undefined], expected: 0};
 ```
 your notes:
 
